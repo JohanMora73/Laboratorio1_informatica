@@ -392,6 +392,7 @@ int main()
                     }
                 }
             break;
+
             case 35:
                 cout<<"Digite un numero entero impar: "<<endl; cin>>n;
 
@@ -509,17 +510,31 @@ int main()
             break;
 
             case 45:
+            suma=0;
+            k=1;
             cout<<"ingrese un numero impar: "<<endl;cin>>lado;
                 for(int fil=0, lado1= lado;fil<lado;fil++){
+                    if(fil>(lado+1)/2) k++;
+                    //cout<<"fila: "<<fil<<endl;
                     for(int col=0, cont=0; col<lado; col++){
+                        //cout<<"lado1: "<<lado1<<endl;
                         if(fil<=col && fil<=lado-col-1){
                             n=lado1*(lado1-1)+1;
                             cout<<n+cont<<'\t';
+
+                            if(fil==col || fil+col==lado-1){
+                                suma+=n+cont;
+                            }
                             cont++;
 
                         }
                         else if(fil>=col && fil>=lado-col-1){
-                            cout<<"B\t";
+                            n=lado1*(lado1-1)+1-(2*k);
+                            cout<<n-cont<<'\t';
+                            if(fil==col || fil+col==lado-1){
+                                suma+=n-cont;
+                            }
+                            cont++;
                         }
                         else if(fil>col && fil<lado-col-1){
                             cout<<"C\t";
@@ -527,9 +542,40 @@ int main()
                         else{
                             cout<<"D\t";
                         }
+
                     }
-                    lado1-=2;
+
+                    if(fil<(lado-1)/2){
+                        lado1-=2;
+                    }
+                    else {
+                        lado1+=2;
+                    }
                     cout<<endl<<endl;
+                }
+                cout<<suma<<endl;
+            break;
+
+            case 47:
+            i=1;
+            bin=1;
+            cont=0;
+            cout<<"ingrese el numero de divisores: "<<endl; cin>>k;
+                while(bin==1){
+                    num=i*(i+1)/2;
+                    //cout<<num<<endl;
+                    for(int j=1;j<=num;j++){
+                        if (num%j==0){
+                            cont++;
+                        }
+                    }
+                    if(cont>k){
+                        cout<<"El numero es: "<<num<<" que tiene "<<cont<<" divisores"<<endl;
+                        bin=0;
+                    }
+                    cont=0;
+
+                    i++;
                 }
             break;
         }
