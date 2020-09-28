@@ -4,12 +4,12 @@ using namespace std;
 
 int main()
 {
-    int div, den, mod, A, B, result, mayor, i, bin, cont, menor, n, mes, dia, columna, fila, k, k2, primo, lado;
-    long long num,suma, MCM;
-    float mod5, area, perimetro;
+    int caso, div, den, mod, result, mayor, i, bin, cont, menor, n, mes, dia, columna, fila, k, k2, primo, lado, multiplo=0;
+    long long int num, suma, MCM, A, B, numero, factorial=1, u, numInv, aux, res;
+    long double pot=1, nume;
+    float mod5, area, perimetro, prom;
     char C;
 
-    int caso;
     while (true) {
         cout<<"ingrese el numero del ejercicio a ejecutar: "<<endl; cin>>caso;
         switch (caso) {
@@ -18,6 +18,18 @@ int main()
                 cout<<"Ingrese el numerador y el divisor: "<<endl; cin >> num >> div;
                 mod=num%div;
                 cout<<"el residuo de la division "<<num<<"/"<<div<<" es: "<<mod<<endl;
+            break;
+
+            case 2:
+                cout << "ingrese el numero: ";
+                cin>>numero;
+                mod=numero%2;
+                if(mod==0){
+                cout << numero<<" es par"<<endl;
+                }
+                else{
+                    cout<<numero<<" es impar"<<endl;
+                }
             break;
 
             case 3:
@@ -32,6 +44,15 @@ int main()
                 else{
                     cout<<"El mayor es " <<B<<endl;
                 }
+            break;
+
+            case 4:
+                cout <<"ingrese el numero A y B separados por un espacio"<<endl;
+                cin >>A;
+                cin >>B;
+                if(A>B) cout<<"El menor es:"<<B<< endl;
+                else if(B>A) cout<<"El menor es:"<<A<< endl;
+                else cout<<"los numeros son iguales"<<endl;
             break;
 
             case 5:
@@ -49,6 +70,20 @@ int main()
                 cout<<num<<"/"<<den<<"="<<result<<endl;
             break;
 
+            case 6:
+            cout << "Ingrese el numero A y el B: ";
+            cin >> A >> B;
+            pot=1;
+            u=B;
+            if(A==0 && B<=0) cout << "La operacion " << A << '^' << B << " no esta definida." << endl;
+            else{
+                if(B<0) u=-1*B;
+                for(;u>0;u--) pot=A*pot;
+                if(B<0) pot=1/pot;
+                cout << A << '^' << B << '=' << pot << endl;
+            }
+            break;
+
             case 7:
                 suma=0;
                 cout<<"Ingrese un numero: "; cin >> num;
@@ -56,6 +91,15 @@ int main()
                     suma+=i;
                 }
                 cout<<"La sumatoria desde 0 hasta "<<num<<" es: "<<suma<<endl;
+            break;
+
+            case 8:
+                cout<< "ingrese el numero entero para calcular su factorial mayores que 0: "<<endl;
+                cin>> numero;
+                for(num=1;num<=numero;num++){
+                 factorial=factorial*num;
+                }
+                cout<<numero<< "!= "<<factorial<<endl;
             break;
 
             case 9:
@@ -69,11 +113,40 @@ int main()
                 cout<<"esa opcion no esta disponible"<<endl;
             break;
 
+            case 10:
+                cout<<"ingrese un numero menor de 100 para calcular sus multiplos hasta el 100: "<<endl;
+                cin>>numero;
+                num=1;
+                multiplo=0;
+                cout<<"Multiplos de "<<numero<<" menores que 100: "<<endl;
+                    while(multiplo<99){
+
+                    multiplo=numero*num;
+
+                    if(multiplo<100)cout<<multiplo<<endl;
+                    num++;
+
+                    }
+
+            break;
+
             case 11:
                 cout<<"Ingrese un numero: "<<endl; cin>>num;
                 for(int i=0;i<=10;i++){
                     cout<<i<<"x"<<num<<"="<<i*num<<endl;
                 }
+            break;
+
+            case 12:
+                cout<<"ingrese numero mayor que 0 para calcular sus 5 primeras potencias "<<endl;
+                cin>>numero;
+                num=1;
+
+                for(num=1;num<=5;num++){
+                    pot=pot*numero;
+                    cout<<numero<<"^"<<num<<"="<<pot<<endl;
+                        }
+                pot=1;
             break;
 
             case 13:
@@ -86,6 +159,15 @@ int main()
                 }
             break;
 
+            case 14:
+            for(columna=1;columna<=1;columna=columna+1){
+                for(fila=1;fila<=50;fila=fila+1){
+                    cout<<fila<<"    "<<51-fila<<endl;
+                }
+
+            }
+            break;
+
             case 15:
                 suma=0;
                 do{
@@ -94,6 +176,29 @@ int main()
                 }
                 while(num!=0);
             cout<<"La suma es: "<<suma<<endl;
+            break;
+
+            case 16:
+            suma=0;
+            num=0;
+            prom=0;
+            i=1;
+            cout<<"ingrese los numeros para calcular su promedio y cero para cerrar: "<<endl;
+
+                while(i==1){
+                    cout<<"ingrese un numero: ";
+                    cin>>nume;
+                        if(nume!=0){
+                            suma=suma+nume;
+                            num=num+1;
+                            prom=suma/num;
+                        }
+                        else{
+                            i=0;
+                        }
+
+                }
+            cout<<"el promedio es: "<<prom<<endl;
             break;
 
             case 17:
@@ -108,6 +213,24 @@ int main()
             cout<<"El numero mayor fue: "<<mayor<<endl;
             break;
 
+            case 18:
+                cout<<"ingrese un numero para saber si es cuadrado perfecto"<<endl;
+                cin>>numero;
+                pot=0;
+                for(nume=0;nume<(numero/2)+1;nume=nume+1){
+                    pot=nume*nume;
+                       if(pot==numero){
+                           cout<<numero<<" es cuadrado perfecto"<<endl;
+                       break;
+                       }
+                    }
+
+                if(pot!=numero){
+                    cout<<numero<<" NO es cuadrado perfecto"<<endl;
+                    }
+
+            break;
+
             case 19:
                 i=2;
                 cout<<"ingrese un numero: "<<endl; cin>>num;
@@ -120,10 +243,31 @@ int main()
                     }
                     i+=1;
                 }
-                cout<<i<<endl;
                 if(num%i!=0){
                     cout<<num<<" es un numero primo"<<endl;
                 }
+            break;
+
+            case 20:
+                num=0;
+                aux=0;
+                numInv=0;
+                cout<<"ingresese el numero para saber si es Palindromo"<<endl;
+                cin>>num;
+                aux=num;
+                while(aux>0){
+                    res=aux % 10;
+                    aux=aux/10;
+                    numInv=numInv*10+res;
+                        }
+
+                if(num==numInv){
+                    cout<< num<< " es un numero palindromo"<<endl;
+                }
+                else {
+                    cout<<num<<" NO es un numero palindromo"<<endl;
+                }
+
             break;
 
             case 21:
@@ -391,3 +535,4 @@ int main()
         }
     }
 }
+
