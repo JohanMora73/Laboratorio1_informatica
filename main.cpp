@@ -1,13 +1,14 @@
 #include <iostream>
 #include <stdlib.h>
+//#include <conio.h>
 using namespace std;
 
 int main()
 {
-    int caso, div, den, mod, result, mayor, i, bin, cont, menor, n, mes, dia, columna, fila, k, k2, primo, lado, multiplo=0;
+    int semilla, caso, j, div, den, mod, result, mayor, i, bin, cont, menor, n, mes, dia, columna, fila, k, k2, primo, lado, multiplo=0, dato, cinc,vein,diez,cinco,dos,cien,dosc,mil,quin,cincue,hora,horar,horas,auxi;
     long long int num, suma, MCM, A, B, numero, factorial=1, u, numInv, aux, res;
     long double pot=1, nume;
-    float mod5, area, perimetro, prom;
+    float mod5, area, perimetro, prom, e, factorial2, pi;
     char C;
 
     while (true) {
@@ -280,6 +281,23 @@ int main()
                 }
             break;
 
+            case 22:
+
+                cout<<"ingrese el numero de segundo para convertir a formato h/m/seg "<<endl;
+                cin>>num;
+                aux=0;
+                A=0;
+                B=0;
+                res=0;
+                A=num/3600;
+                res=num%3600;
+                B=res/60;
+                aux=res%60;
+
+                //cout<<B<<endl;
+                cout<<A<<":"<<B<<":"<<aux<<endl;
+            break;
+
             case 23:
                 cout<<"ingrese un los 2 numeros a evaluar: "<<endl; cin>> A >>B;
                 bin=0;
@@ -289,6 +307,34 @@ int main()
                         bin=1;
                     }
                 }
+            break;
+
+            case 24:
+                num=0;
+                 int fil,col;
+                 cout<<"ingrese el lado del cuadrado a imprimir"<<endl;
+                 cin>>num;
+                    for(fil=0;fil<num;fil=fil+1){
+                       for(col=0;col<num;col=col+1){
+
+                            if(fil==0){
+                            cout << "+";
+                            }
+                            else if(fil==num-1){
+                                cout <<"+";
+                            }
+                            else if(col==0){
+                                cout<<"+";
+                            }
+                            else if(col==num-1){
+                                cout<<"+";
+                            }
+                            else{
+                                cout << " ";
+                            }
+                       }
+                       cout << endl;
+                    }
             break;
 
             case 25:
@@ -301,6 +347,43 @@ int main()
                 }
                 cout<<num<<" tiene "<< cont<<" digitos"<<endl;
 
+            break;
+
+            case 26:
+                A=0;B=0;col=0;
+                cout<<"ingrese el primer lado ";
+                cin>>A;
+                cout<<"ingrese el segundo lado: ";
+                cin>>B;
+                cout<<"ingrese el tercer lado: ";
+                cin>>col;
+
+                if(A>(B+col)){
+                    cout<<"los lados no forman un triangulo"<<endl;
+                }
+                else if(B>(A+col)){
+                    cout<<"los lados no forman un triangulo"<<endl;
+
+                }
+                else if(col>(A+B)){
+                    cout<<"los lados no forman un triangulo"<<endl;
+
+                }
+                else if((A==B)&&B!=col ){
+                    cout<<"el triangulo es isoceles"<<endl;
+                }
+                else if(col==B&&A!=col ){
+                    cout<<"el triangulo es isoceles"<<endl;
+                }
+                else if(col==A&&B!=A ){
+                    cout<<"el triangulo es isoceles"<<endl;
+                }
+                else if(A==B&&B!=col){
+                    cout<<"el triangulo es isoceles"<<endl;
+                }
+                else {
+                    cout<<"el triangulo escaleno" <<endl;
+                }
             break;
 
             case 27:
@@ -322,6 +405,28 @@ int main()
                 }
             break;
 
+            case 28:
+                 cont=0;
+                 pi=0;
+                 i=0;
+                 cout<<"introduzca el valor de aproximacion de pi"<<endl;cin>> num;
+                 while(cont<num){
+                    i++;
+                    if(i%2 != 0){
+                        float j=i;
+                        cont++;
+                        if(cont%2 != 0){
+                               pi+=1/j;
+                        }
+                        else{
+                               pi-=1/j;
+                        }
+                    }
+                }
+                pi*=4;
+                cout<<"pi es aproximadamente: "<<pi<<endl;
+            break;
+
             case 29:
                 cout<<"piense en un numero de 0 a 100"<<endl;
                 mayor=100;
@@ -339,6 +444,26 @@ int main()
                 }while(C != 61);
             break;
 
+            case 30:
+                dato=rand()%(101);
+                cont=0;
+                do{
+
+                    cout<<"digita un numero: ";cin>>n;
+
+                    if(n>dato){
+                        cout<<"digite un numero menor"<<endl;
+                    }
+                    else if(n<dato){
+                        cout<<"digite un numero mayor"<<endl;
+
+                    }
+                    cont++;
+                }while(n!=dato);
+                cout<<"FELICIDADES ADIVINASTE EL NUMERO"<<endl;
+                cout<<"numero de intentos:"<<cont<<endl;
+            break;
+
             //Problemas:
 
             case 31:
@@ -354,6 +479,36 @@ int main()
                 else{
                     cout<<"no es una letra"<<endl;
                 }
+            break;
+
+            case 32:
+
+                cout<<"ingrese la cantidad a entregar";
+                cin>>num;
+                res=0;aux=0;k=0;
+                cinc=0;vein=0;diez=0;cinco=0;dos=0;mil=0;quin=0;dosc=0;cien=0;cincue=0;
+
+                res=num%50000;
+                cinc=num/50000;
+                vein=res/20000;
+                res=res%20000;
+                diez=res/10000;
+                res=res%10000;
+                cinco=res/5000;
+                res=res%5000;
+                dos=res/2000;
+                res=res%2000;
+                mil=res/1000;
+                res=res%1000;
+                quin=res/500;
+                res=res%500;
+                dosc=res/200;
+                res=res%200;
+                cien=res/100;
+                res=res%100;
+                cincue=res/50;
+                res=res%50;
+                cout<<"50000: "<<cinc<<endl<<"20000: "<<vein<<endl<<"10000: "<<diez<<endl<<"5000:  "<<cinco<<endl<<"2000:  "<<dos<<endl<<"1000:  "<<mil<<endl<<"500:   "<<quin<<endl<<"200:   "<<dosc<<endl<<"100:   "<<cien<<endl<<"50:    "<<cincue<<endl<<"faltante:"<<res<<endl;
             break;
 
             case 33:
@@ -393,6 +548,50 @@ int main()
                 }
             break;
 
+
+            case 34:
+
+                cinco=0;
+                auxi=0;
+                j=0;
+                i=0;
+                hora=0;
+                horar=0;
+                horas=0;
+                num=0;
+                res=0;
+                cout<<"ingrese el primer valor de la hora formato militar"<<endl;
+                cin>>num;
+                res=num%100;
+                horas=num/100;
+                cout<<"ingrese segundo valor para sumarselo al valor inicial en el mismo formato"<<endl;
+                cin>>horar;
+                if(((num%100)<=59)&&((horar%100)<=59)){
+
+                    j=horar/100;
+                    i=horar%100;
+                    cout<<horas<<res<<endl;
+                    cout<<j<<i<<endl;
+                    if(res+i>=60){
+                        auxi=res+i;
+                        cinco=auxi/60;
+                        res=auxi%60;
+                        hora=horas+j+cinco;
+                        cout<<"la hora final es:"<<hora <<":"<<res<<endl;
+                    }
+
+                    else{
+                        hora=horas+j;
+                        res=res+i;
+                        cout<<"la hora final es:"<<hora<<":"<<res<<endl;
+                    }
+                }
+                else {
+                    cout<<"alguno o ambos de los dos formatos de hora son invalidos "<<endl;
+
+                }
+            break;
+
             case 35:
                 cout<<"Digite un numero entero impar: "<<endl; cin>>n;
 
@@ -412,6 +611,20 @@ int main()
                     }
                     cout<<endl;
                 }
+            break;
+
+            case 36:
+                cout<<"ingrese el numero de elementos de la serie para la aproximacion de e: "<<endl;cin>>num;
+                factorial2=1.0;
+                e=1.0;
+                for (j=1;j<num;j++){
+                    for(i=1;i<=j;i++){
+                        factorial2*=i;
+                    }
+                    e=e+1/factorial2;
+                    factorial2=1.0;
+                }
+                cout<<"e es aproximadamente: "<<e<<endl;
             break;
 
             case 37:
@@ -437,6 +650,45 @@ int main()
                     suma-=k;
                 }
                 cout<<"El resultado de la suma es: "<<suma<<endl;
+            break;
+
+            case 38:
+                cout<<"ingrese los valores de a, b y c respectivamente: "<<endl; cin>>A>>B>>u;
+                suma=0;
+                bin=0;
+
+                for (i=1;i<u;i++){
+                    k=i*A;
+
+                    if (k >=u){
+                        for (j=1;j<u;j++){
+                            k2=j*B;
+                            if(k2>=u)break;
+
+                            else if(k2<u){
+                                for(int n=1;n<u;n++){
+                                    k=n*A;
+                                    if (k==k2){
+                                        bin=1;
+                                    }
+                                }
+                                if(bin != 1){
+                                    suma+=k2;
+                                    cout<<k2<<"+";
+                                }
+                                else bin=0;
+                            }
+                        }
+                break;
+                }
+                else if(k<u){
+                    suma+=k;
+                    cout<<k<<"+";
+                }
+            }
+            cout<<"="<<suma<<endl;
+
+
             break;
 
             case 39:
@@ -468,6 +720,35 @@ int main()
 
             break;
 
+            case 40:
+
+                cout<<"Ingrese un numero: "<<endl;cin>>n;
+                cont=0;
+                num=1;
+                k=0;
+                primo=0;
+                while(cont<n){
+
+                    for(int i=1;i<=num;i++){
+                        if (num%i==0){
+                            k+=1;
+                        }
+                    }
+
+                    if (k==2){
+                        cont++;
+                        primo=num;
+                        cout<<primo<<endl;
+
+
+                    }
+                    num++;
+                    k=0;
+                }
+                cout<<"EL primo numero "<<cont<<" es: "<<primo<<" "<<endl;
+
+            break;
+
             case 41:
                 cout<<"ingrese un numero: "<<endl; cin>>n;
                 k=n;
@@ -487,6 +768,29 @@ int main()
                         }
                     }
                 }
+            break;
+
+            case 42:
+                cout<<"Digite el numero: "<<endl; cin>>num;
+                n=(num/2)+1;
+                k=0;
+                for(int i=n;i>0;i--){
+                    for(j=1;j<=n;j++){
+                        if(i%j==0){
+                            k++;
+                        }
+                    }
+                    if(k==2){
+                        if(num%i==0){
+                            cout<<"el mayor factor primo es: "<<i<<endl;
+                            break;
+                        }
+                    }
+
+                    k=0;
+                }
+
+
             break;
 
             case 43:
@@ -509,51 +813,107 @@ int main()
                 cout<<"El resultado de la suma es: "<<suma<<endl;
             break;
 
+            case 44:
+            bin=1;
+            for(i=999;i>=100;i--){
+                for(j=999;j>=100;j--){
+                    num=i*j;
+                    aux=num;
+                    numInv=0;
+                    while(aux>0){
+                        res=aux % 10;
+                        aux=aux/10;
+                        numInv=numInv*10+res;
+                            }
+
+                    if(num==numInv){
+                        cout<<i<<"*"<<j<< " = "<< num<<endl;
+                        bin=0;
+                        break;
+                    }
+
+                }
+                if(bin==0) break;
+            }
+            break;
+
             case 45:
-            suma=0;
-            k=1;
-            cout<<"ingrese un numero impar: "<<endl;cin>>lado;
-                for(int fil=0, lado1= lado;fil<lado;fil++){
-                    if(fil>(lado+1)/2) k++;
-                    //cout<<"fila: "<<fil<<endl;
-                    for(int col=0, cont=0; col<lado; col++){
-                        //cout<<"lado1: "<<lado1<<endl;
-                        if(fil<=col && fil<=lado-col-1){
-                            n=lado1*(lado1-1)+1;
-                            cout<<n+cont<<'\t';
-
-                            if(fil==col || fil+col==lado-1){
-                                suma+=n+cont;
+                suma=0;
+                k=1;
+                cout<<"ingrese un numero impar: "<<endl;cin>>lado;
+                    for(int fil=0, lado1= lado;fil<lado;fil++){
+                        if(fil>(lado+1)/2) k++;
+                        for(int col=0, cont=0; col<lado; col++){
+                            if(fil<=col && fil<=lado-col-1){
+                                n=lado1*(lado1-1)+1;
+                                cout<<n+cont<<'\t';
+                                if(fil==col || fil+col==lado-1){
+                                    suma+=n+cont;
+                                }
+                                cont++;
                             }
-                            cont++;
-
-                        }
-                        else if(fil>=col && fil>=lado-col-1){
-                            n=lado1*(lado1-1)+1-(2*k);
-                            cout<<n-cont<<'\t';
-                            if(fil==col || fil+col==lado-1){
-                                suma+=n-cont;
+                            else if(fil>=col && fil>=lado-col-1){
+                                n=lado1*(lado1-1)+1-(2*k);
+                                cout<<n-cont<<'\t';
+                                if(fil==col || fil+col==lado-1){
+                                    suma+=n-cont;
+                                }
+                                cont++;
                             }
-                            cont++;
+                            else if(fil>col && fil<lado-col-1){
+                                cout<<"C\t";
+                            }
+                            else{
+                                cout<<"D\t";
+                            }
                         }
-                        else if(fil>col && fil<lado-col-1){
-                            cout<<"C\t";
+                        if(fil<(lado-1)/2){
+                            lado1-=2;
+                        }
+                        else {
+                            lado1+=2;
+                        }
+                        cout<<endl<<endl;
+                    }
+                    cout<<"Es una espiral de "<<lado<<"x"<<lado<<", la suma es: "<<suma<<endl;
+            break;
+
+            case 46:
+                cout<<"Digite un numero : "<<endl;cin>>num;
+                cont=1;
+                mayor=0;
+                semilla=num;
+                for(num;num>1;num--){
+                    n=num;
+                    while(n>1){
+                        cont++;
+                        if(n%2==0){
+                            n=n/2;
                         }
                         else{
-                            cout<<"D\t";
+                            n=(3*n)+1;
                         }
-
                     }
-
-                    if(fil<(lado-1)/2){
-                        lado1-=2;
+                    if(cont>mayor){
+                        mayor=cont;
+                        semilla=num;
                     }
-                    else {
-                        lado1+=2;
-                    }
-                    cout<<endl<<endl;
+                    cont=1;
                 }
-                cout<<suma<<endl;
+                cout<<"La serie mas larga es con la semilla: "<<semilla<<" teniendo "<<mayor<<" terminos, su serie es: "<<endl;
+                cout<<semilla<<" ";
+                while(semilla>1){
+                    cont++;
+                    if(semilla%2==0){
+                        semilla=semilla/2;
+                        cout<<semilla<<" ";
+                    }
+                    else{
+                        semilla=(3*semilla)+1;
+                        cout<<semilla<<" ";
+                    }
+                }
+                cout<<endl;
             break;
 
             case 47:
@@ -563,7 +923,6 @@ int main()
             cout<<"ingrese el numero de divisores: "<<endl; cin>>k;
                 while(bin==1){
                     num=i*(i+1)/2;
-                    //cout<<num<<endl;
                     for(int j=1;j<=num;j++){
                         if (num%j==0){
                             cont++;
